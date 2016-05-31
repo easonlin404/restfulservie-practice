@@ -1,0 +1,29 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<body>
+	<div>
+		<h1>welcome, it's index page</h1>
+	</div>
+		<input id ="name" type="text"/>
+		<button id ="getRemoteAppMsgBtn">get Remote App message</button>
+</body>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+	integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+	crossorigin="anonymous"></script>
+	
+<script type="text/javascript">
+
+    var $btn = $('#getRemoteAppMsgBtn');
+    $btn.click(function(){
+        var $name = $('#name');
+        $.post("rest/hello?name="+$name.val(), function( data ) {
+            alert(data);
+        });
+    });
+</script>
+
+</html>
